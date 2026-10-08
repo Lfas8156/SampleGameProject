@@ -1,44 +1,19 @@
 # 探検家スプライト
 
-基準は [4面図](references/explorer_four_view_pixel_reference.png) の `8c95ae4` 版です。
-記入シートの追加指定に従い、待機時はつるはしを腰の前で水平に、歩き・走りでは両手で胸の前に斜めに保持します。
-ポーチなどの未指定の細部は基準画像に合わせて簡略化しています。
+[4面図](references/explorer_four_view_pixel_reference.png)を基準にした、前・後ろ・左・右の4方向の素材です。金に近い緑のポニーテール、額のゴーグル、口のない顔、革のリュック、探検家の服を共通にしています。待機時のつるはしは腰の前で水平、歩き・走りでは両手で胸の前に斜めに持ちます。
 
-## 本番サイズのPNG
-
-| 動作 | ファイル | 1方向の枚数 | シート寸法 | 初期fps |
+| 動作 | ファイル | 列×行 | シート寸法 | 再生速度 |
 | --- | --- | --- | --- | --- |
-| 待機 | [explorer_idle.png](explorer_idle.png) | 4 | 256×512 px | 4 |
-| 歩き | [explorer_walk.png](explorer_walk.png) | 8 | 512×512 px | 8 |
-| 走り | [explorer_run.png](explorer_run.png) | 8 | 512×512 px | 12 |
+| 待機 | [explorer_idle.png](explorer_idle.png) | 4×4 | 256×256 px | 4 fps |
+| 歩き | [explorer_walk.png](explorer_walk.png) | 8×4 | 512×256 px | 8 fps |
+| 走り | [explorer_run.png](explorer_run.png) | 8×4 | 512×256 px | 12 fps |
 
-- 1セル64×64 px、8方向、合計160コマ・24アニメーション。
-- 横に時間順のコマ、縦に方向を配置。余白・間隔は0 px。
-- 行順は `down`、`down_left`、`left`、`up_left`、`up`、`up_right`、`right`、`down_right`。
-- 共通32色と透明色を使用。アルファは0または255で、ぼかしなし。
-- 足元の地面基準はセル内 `(32, 57)`。歩き・走りでは左右の足が交互に接地し、走りの空中位相では両足が少し上がります。
-- 頭身は2頭身を基準とし、キャラクターは約48 px高。つるはしや髪もセル内に収めています。
+- 1セル64×64 px。行順は `down`（前）、`up`（後ろ）、`left`、`right`。列は時間順で、余白はありません。斜め方向の素材は含みません。
+- 計80コマ・12アニメーション。色は共通22色と透明色で、アルファは0か255です。
+- 足元の地面基準はセル内 `(32, 57)`。歩行・走行は左右の足が交互に出る8コマのループです。
 - Godotでは最近傍フィルターを使い、`AnimatedSprite2D` の `centered = true`、`offset = Vector2(0, -25)` とします。
-- 詳細な寸法・行順・パレット・fpsは [explorer_sprites.json](explorer_sprites.json) に記録しています。
+- 寸法・行順・パレット・再生速度は [explorer_sprites.json](explorer_sprites.json) に記録しています。
 
-## 確認用プレビュー
+プレビューは、[待機](previews/explorer_idle_contact.png)・[歩き](previews/explorer_walk_contact.png)・[走り](previews/explorer_run_contact.png)の全コマ一覧と、各動作の再生GIF（[待機](previews/explorer_idle.gif)・[歩き](previews/explorer_walk.gif)・[走り](previews/explorer_run.gif)）です。背景と方向名はプレビューのみに含まれます。
 
-- 待機: [再生GIF](previews/explorer_idle.gif) ／ [全コマ一覧](previews/explorer_idle_contact.png)
-- 歩き: [再生GIF](previews/explorer_walk.gif) ／ [全コマ一覧](previews/explorer_walk_contact.png)
-- 走り: [再生GIF](previews/explorer_run.gif) ／ [全コマ一覧](previews/explorer_run_contact.png)
-
-プレビューは3倍の最近傍拡大です。背景と方向名は確認用画像だけに含まれます。
-GIFの時間単位に合わせて再生間隔を丸めているため、正確なfpsはJSONの値を使用してください。
-
-## 制作・検証
-
-画像生成後、人物の輪郭から各コマを抽出し、方向ごとに同じ倍率で縮小、共通パレットへの減色、透明部分のノイズ除去、腰と足元を基準にした位置合わせを行いました。48 px版で潰れた細部を読み取れるように64 pxへ拡大し、歩き・走りの足元は接地する側が交互に変わる8位相で描き直しました。歩きの左後ろと待機の右前は個別に再生成しています。
-
-- PNGの寸法、セル数、32色、二値の透過、セル境界へのはみ出しがないことを検査済み。
-- 歩き・走りはフレーム0と4で接地する足が入れ替わることを確認済み。
-- 方向ごとに待機4枚、歩き8枚、走り8枚の異なるコマがあることを確認済み。
-- 全コマ一覧で方向と切り出しを目視確認済み。
-- Godot 4.7で3枚のテクスチャを読み込み、160領域の切り出しを確認。
-- 一時的な検証用SpriteFramesで全24アニメーションを再生し、全コマの通過と各2回以上のループを確認済み。
-
-今回の成果物は素材です。ゲームシーンや永続的なSpriteFramesリソースには組み込んでいません。実際の移動速度に合わせた足運びの調整や、ゲーム画面での見た目は組み込み時に確認してください。
+歩き・走りは4面図を参照して作り直し、人物を抽出してから減色・位置合わせを行いました。透過画像の縁に残る色の点を除去し、64×64 pxのコマに収めています。ゲームシーンや永続的な `SpriteFrames` リソースへの組み込みは別作業です。

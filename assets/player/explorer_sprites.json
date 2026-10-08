@@ -9,82 +9,68 @@
   ],
   "directions": [
     "down",
-    "down_left",
-    "left",
-    "up_left",
     "up",
-    "up_right",
-    "right",
-    "down_right"
+    "left",
+    "right"
   ],
   "palette": [
     "#201910",
     "#777923",
     "#b5be32",
     "#e5dd55",
+    "#f0e97a",
     "#c5845f",
     "#f0c6a0",
     "#eee5ce",
     "#493023",
     "#795036",
     "#a17247",
+    "#ad814f",
     "#343b44",
     "#737b87",
+    "#9aa4aa",
     "#164e4a",
     "#28766c",
-    "#dc7256",
-    "#285d38",
-    "#383621",
-    "#959331",
-    "#c8ca48",
-    "#f0e97a",
-    "#ecf2bf",
-    "#9b623f",
-    "#d59c76",
-    "#ffe0ba",
-    "#b7aca0",
-    "#ad814f",
-    "#cd9b65",
-    "#53606b",
-    "#9aa4aa",
-    "#21655d",
     "#449082",
-    "#ef947d"
+    "#dc7256",
+    "#ef947d",
+    "#285d38",
+    "#53606b"
   ],
   "animations": {
     "idle": {
       "file": "explorer_idle.png",
       "columns": 4,
-      "rows": 8,
+      "rows": 4,
       "fps": 4,
       "loop": true,
       "size": [
         256,
-        512
+        256
       ],
       "pickaxe_pose": "horizontal_waist"
     },
     "walk": {
       "file": "explorer_walk.png",
       "columns": 8,
-      "rows": 8,
+      "rows": 4,
       "fps": 8,
       "loop": true,
       "size": [
         512,
-        512
+        256
       ],
       "pickaxe_pose": "diagonal_chest"
     },
     "run": {
       "file": "explorer_run.png",
       "columns": 8,
-      "rows": 8,
+      "rows": 4,
       "fps": 12,
       "loop": true,
       "size": [
         512,
-        512
+        256
       ],
       "pickaxe_pose": "diagonal_chest"
     }
