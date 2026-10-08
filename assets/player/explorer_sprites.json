@@ -1,0 +1,76 @@
+{
+  "cell_size": [
+    48,
+    48
+  ],
+  "origin": [
+    24,
+    42
+  ],
+  "directions": [
+    "down",
+    "down_left",
+    "left",
+    "up_left",
+    "up",
+    "up_right",
+    "right",
+    "down_right"
+  ],
+  "palette": [
+    "#201910",
+    "#777923",
+    "#b5be32",
+    "#e5dd55",
+    "#c5845f",
+    "#f0c6a0",
+    "#eee5ce",
+    "#493023",
+    "#795036",
+    "#a17247",
+    "#343b44",
+    "#737b87",
+    "#164e4a",
+    "#28766c",
+    "#dc7256",
+    "#285d38"
+  ],
+  "animations": {
+    "idle": {
+      "file": "explorer_idle.png",
+      "columns": 4,
+      "rows": 8,
+      "fps": 4,
+      "loop": true,
+      "size": [
+        192,
+        384
+      ],
+      "pickaxe_pose": "horizontal_waist"
+    },
+    "walk": {
+      "file": "explorer_walk.png",
+      "columns": 8,
+      "rows": 8,
+      "fps": 8,
+      "loop": true,
+      "size": [
+        384,
+        384
+      ],
+      "pickaxe_pose": "diagonal_chest"
+    },
+    "run": {
+      "file": "explorer_run.png",
+      "columns": 8,
+      "rows": 8,
+      "fps": 12,
+      "loop": true,
+      "size": [
+        384,
+        384
+      ],
+      "pickaxe_pose": "diagonal_chest"
+    }
+  }
+}
