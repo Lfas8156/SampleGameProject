@@ -1,11 +1,11 @@
 {
   "cell_size": [
-    48,
-    48
+    64,
+    64
   ],
   "origin": [
-    24,
-    42
+    32,
+    57
   ],
   "directions": [
     "down",
@@ -33,7 +33,23 @@
     "#164e4a",
     "#28766c",
     "#dc7256",
-    "#285d38"
+    "#285d38",
+    "#383621",
+    "#959331",
+    "#c8ca48",
+    "#f0e97a",
+    "#ecf2bf",
+    "#9b623f",
+    "#d59c76",
+    "#ffe0ba",
+    "#b7aca0",
+    "#ad814f",
+    "#cd9b65",
+    "#53606b",
+    "#9aa4aa",
+    "#21655d",
+    "#449082",
+    "#ef947d"
   ],
   "animations": {
     "idle": {
@@ -43,8 +59,8 @@
       "fps": 4,
       "loop": true,
       "size": [
-        192,
-        384
+        256,
+        512
       ],
       "pickaxe_pose": "horizontal_waist"
     },
@@ -55,8 +71,8 @@
       "fps": 8,
       "loop": true,
       "size": [
-        384,
-        384
+        512,
+        512
       ],
       "pickaxe_pose": "diagonal_chest"
     },
@@ -67,8 +83,8 @@
       "fps": 12,
       "loop": true,
       "size": [
-        384,
-        384
+        512,
+        512
       ],
       "pickaxe_pose": "diagonal_chest"
     }
